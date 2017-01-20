@@ -8,3 +8,5 @@ Have you ever wanted to go out, but couldn't decide what to do?
 Help Me Decide is your solution.
 
 Pick a category, pick what you're willing to do, and let the program decide for you!
+
+Program can be used here: http://www.tyler-roland.com/HelpMeDecide
