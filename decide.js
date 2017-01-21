@@ -2,7 +2,7 @@
 	Basic functionality of Help Me Decide application.
 	Author: Tyler Roland
 	Date Created: 1/10/17
-	Last Modified: 1/19/17
+	Last Modified: 1/21/17
 */
 
 var foodArray = ["Afghan", "African", "American (New)", "American (Traditional)", "Arabian", "Argentine", "Armenian", "Asian Fusion", "Austrailian",
