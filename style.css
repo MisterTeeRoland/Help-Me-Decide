@@ -16,8 +16,8 @@ p {font-family: FebreroLight; font-size: 30px; letter-spacing: .1em; width: 70%;
 
 /* Font Awesome icon styles */
 .fa-arrow-down {position: absolute; top: 80px; left: 42.5%; color: #e2b80f; z-index: 50; -webkit-text-stroke-color: black; -webkit-text-stroke-width: 1px;}
-.fa-bicycle:hover, .fa-cutlery:hover {cursor: pointer; color: #222; position: relative;}
-.fa-bicycle {margin-left: 40px;}
+.fa-bicycle:hover, .fa-cutlery:hover, .fa-glass:hover, .fa-paint-brush:hover {cursor: pointer; color: #222; position: relative;}
+.fa-bicycle, .fa-glass, .fa-paint-brush {margin-left: 40px;}
 
 .tooltip .tooltiptext {visibility: hidden; background-color: #fff; color: #222; font-family: FebreroLight; text-align: center; padding: 5px; font-size: 20px; border-radius: 6px; position: absolute; z-index: 1; top: 115%; left: 50%; margin-left: -30px; opacity: 0; transition: opacity 1s;}
 .tooltip .tooltiptext::after {content: ""; position: absolute; bottom: 100%; left: 50%; margin-left: -5px; border-width: 5px; border-style: solid; border-color: transparent transparent #fff transparent;}
@@ -59,6 +59,8 @@ input[type=text] {padding: 10px; width: 80%; max-width: 400px; border-radius: 10
 	.name {font-size: 25px; margin-bottom: 10px;}
 	.address img {width: 50px;}
 	#results {font-size: 40px;}
+	.fa-bicycle, .fa-glass, .fa-cutlery, .fa-paint-brush {font-size: 40px;}
+	.fa-bicycle, .fa-glass, .fa-paint-brush {margin-left: 20px;}
 }
 
 @media screen and (max-width: 580px) {
