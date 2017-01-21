@@ -16,7 +16,25 @@ var foodArray = ["Afghan", "African", "American (New)", "American (Traditional)"
 "Soul Food", "Soup", "Southern", "Spanish", "Sri Lankan", "Steakhouses", "Supper Clubs", "Sushi Bars", "Syrian", "Taiwanese", "Tapas Bars", "Tapas/Small Plates", "Tex-Mex",
 "Thai", "Turkish", "Ukrainian", "Uzbek", "Vegan", "Vegetarian", "Vietnamese", "Waffles", "Wraps"];
 
-var entertainmentArray = ['Bowling', 'Golf', 'Italian', 'American', 'Thai'];
+//active life
+var activeArray = ["ATV Rentals/Tours", "Airsoft", "Amateur Sports Teams", "Amusement Parks", "Aquariums", "Archery", "Badminton", "Baseball Fields", "Basketball Courts", 
+"Batting Cages", "Beach Volleyball", "Beaches", "Bicycle Paths", "Boating", "Bobsledding", "Bocce Ball", "Bowling", "Bubble Soccer", "Bungee Jumping", "Challenge Courses", 
+"Climbing", "Cycling Classes", "Disc Golf", "Diving", "Escape Games", "Fencing Clubs", "Fishing", "Aerial Fitness", "Barre Classes", "Boot Camps", "Boxing", "Cardio Classes", 
+"Dance Studios", "Golf Lessons", "Gyms", "Martial Arts", "Meditation Centers", "Pilates", "Yoga", "Flyboarding", "Gliding", "Go Karts", "Golf", "Gun/Rifle Ranges", "Gymnastics", 
+"Handball", "Hang Gliding", "Hiking", "Horse Racing", "Hot Air Balloons", "Jet Skis", "Kiteboarding", "Lakes", "Lazer Tag", "Lawn Bowling", "Leisure Centers", "Mini Golf", 
+"Mountain Biking", "Paddleboarding", "Paintball", "Parasailing", "Parks", "Dog Parks", "Skate Parks", "Public Plazas", "Races & Competitions", "Racing Experience", "Rafting/Kayaking", 
+"Recreation Centers", "Sailing", "Scavenger Hunts", "Skating Rinks", "Skiing", "Skydiving", "Sledding", "Snorkling", "Soccer", "Sports Clubs", "Squash", "Surfing", "Swimming Pools", 
+"Tennis", "Trampoline Parks", "Tubing", "Volleyball", "Water Parks", "Wildlife Hunting Ranges", "Ziplining", "Zoos"];
+
+//nightlife
+var nightlifeArray = ["Adult Entertainment", "Bar Crawl", "Absinthe Bars", "Beach Bars", "Beer Bar", "Champagne Bars", "Cocktail Bars", "Dive Bars", "Drive-Thru Bars", 
+"Gay Bars", "Hookah Bars", "Irish Pub", "Lounges", "Sake Bars", "Sports Bars", "Tiki Bars", "Wine Bars", "Beer Gardens", "Club Crawl", "Coffeeshops", "Comedy Clubs", 
+"Country Dance Halls", "Dance Clubs", "Dance Restaurants", "Fasil Music", "Jazz & Blues", "Karaoke", "Music Venues", "Piano Bars", "Pool Halls"];
+
+//arts and entertainment
+var entertainmentArray = ["Arcades", "Art Galleries", "Betting Centers", "Bingo Halls", "Botanical Gardens", "Cabaret", "Casinos", "Castles", "Choirs", "Cinema", 
+"Drive-In Theater", "Outdoor Movies", "Cultural Centers", "Attraction Farms", "Pick Your Own Farms", "Ranches", "Haunted Houses", "Jazz & Blues", "Museums", "Music Venues", 
+"Observatories", "Opera & Ballet", "Paint & Sip", "Performing Arts", "Planetarium", "Race Tracks", "Rodeo", "Wineries"];
 
 var datas = [];
 var names = [];
@@ -175,6 +193,8 @@ function SetupCategories(category) {
 	$("#choicesContainer").css('display', 'inline-block');
 
 	if (category == 'food') toUse = foodArray;
+	else if (category == 'active') toUse = activeArray;
+	else if (category == 'nightlife') toUse = nightlifeArray;
 	else if (category == 'entertainment') toUse = entertainmentArray;
 
 	for (var i = 0; i < toUse.length; i++)
