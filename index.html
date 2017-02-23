@@ -2,14 +2,14 @@
 <html>
 	<head>
 		<meta charset='utf-8' />
-		<meta name='viewport' content='width=device-width' />
+		<meta name='viewport' content='width=device-width, initial-scale=1' />
 		<title>Help Me Decide - Powered by Yelp</title>
 		<script src='js/jquery3.1.1.min.js'></script>
 		<script src='js/jqueryRotate.js'></script>
 		<script src='js/canvasjs.min.js'></script>
-		<script src="https://use.fontawesome.com/87c80e8b07.js"></script>
 		<script src="decide.js"></script>
 		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
 	</head>
 
 	<body>
@@ -18,12 +18,14 @@
 		<div id='body'>
 			<div id='main'>
 				<div id='startDiv'>
-					<p>Can't decide what to eat or what to do? Let us help!</p>
-					<label>What would you like to find?</label><br><br>
-					<i class='fa fa-cutlery fa-5x tooltip' aria-hidden='true' onclick='SetupCategories("food")'><span class='tooltiptext'>Food</span></i>
-					<i class='fa fa-bicycle fa-5x tooltip' aria-hidden='true' onclick='SetupCategories("active")'><span class='tooltiptext'>Active Life</span></i>
-					<i class='fa fa-glass fa-5x tooltip' aria-hidden='true' onclick='SetupCategories("nightlife")'><span class='tooltiptext'>Night Life</span></i>
-					<i class='fa fa-paint-brush fa-5x tooltip' aria-hidden='true' onclick='SetupCategories("entertainment")'><span class='tooltiptext'>Arts & Entertainment</span></i>
+					<p>Can't decide what to eat or what to do?<br>Let us help!</p>
+					<div id='categoryDiv'>
+						<label>What would you like to find?</label><br><br>
+						<i class='fa fa-cutlery fa-5x tooltip' aria-hidden='true' onclick='SetupCategories("food")'><span class='tooltiptext'>Food</span></i>
+						<i class='fa fa-bicycle fa-5x tooltip' aria-hidden='true' onclick='SetupCategories("active")'><span class='tooltiptext'>Active Life</span></i>
+						<i class='fa fa-glass fa-5x tooltip' aria-hidden='true' onclick='SetupCategories("nightlife")'><span class='tooltiptext'>Night Life</span></i>
+						<i class='fa fa-paint-brush fa-5x tooltip' aria-hidden='true' onclick='SetupCategories("entertainment")'><span class='tooltiptext'>Arts & Entertainment</span></i>
+					</div>
 				</div>
 
 				<div id='choicesContainer'>
