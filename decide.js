@@ -2,7 +2,7 @@
 	Basic functionality of Help Me Decide application.
 	Author: Tyler Roland
 	Date Created: 1/10/17
-	Last Modified: 1/21/17
+	Last Modified: 1/19/17
 */
 
 var foodArray = ["Afghan", "African", "American (New)", "American (Traditional)", "Arabian", "Argentine", "Armenian", "Asian Fusion", "Austrailian",
@@ -192,18 +192,27 @@ function SetupCategories(category) {
 	$("#choices").html("");
 	$("#choicesContainer").css('display', 'inline-block');
 
-	if (category == 'food') toUse = foodArray;
-	else if (category == 'active') toUse = activeArray;
-	else if (category == 'nightlife') toUse = nightlifeArray;
-	else if (category == 'entertainment') toUse = entertainmentArray;
+	if (category == 'food') 				toUse = foodArray;
+	else if (category == 'active') 			toUse = activeArray;
+	else if (category == 'nightlife') 		toUse = nightlifeArray;
+	else if (category == 'entertainment') 	toUse = entertainmentArray;
+
+	var choices = "";
 
 	for (var i = 0; i < toUse.length; i++)
-		$("#choices").html($("#choices").html() + "<input type='checkbox' onchange='BuildPieChart()' id='"+i+"' name='"+i+"' value='"+toUse[i]+"'><label for='"+i+"'>"+toUse[i]+"</label><br>");
+		choices += "<input type='checkbox' onchange='BuildPieChart()' id='"+i+"' name='"+i+"' value='"+toUse[i]+"'><label for='"+i+"'>"+toUse[i]+"</label><br>";
+
+	$("#choices").html(choices);
+
+	$('body, html').animate({
+		scrollTop: $("#choicesContainer").offset().top
+	});
 }
 
 //function to build or rebuild the choices circle after a choice is selected or deselected
 function BuildPieChart() {
-	$("#circleContainer").css('display', 'inline-block');
+	//$("#circleContainer").css('display', 'inline-block');
+	$("#circleContainer").show(800, "swing");
 	numSelected = 0;
 	$("#chartContainer").html("");
 	
@@ -219,7 +228,7 @@ function BuildPieChart() {
 
 	//only show the circle if one or more choices are selected
 	if (numSelected > 0) $("#circleContainer").css('display', 'inline-block');
-	else $("#circleContainer").css('display', 'none');
+	else $("#circleContainer").hide(800, "swing");
 
 	for (var i = 0; i < numSelected; i++)
 		datas.push({y: 1, indexLabel: names[i]});
@@ -261,4 +270,22 @@ function showPosition(position) {
 	lat = position.coords.latitude;
 	lon = position.coords.longitude;
 	SearchWithLatLon(term, lat, lon);
+}
+
+window.onload = function() {
+	$('[data-toggle="tooltip"]').tooltip(); //initialize Bootstrap tooltips with tooltip.js
+	
+	//copyright date
+	var date = new Date();
+	$("#year").html(date.getFullYear());
+
+	//pressing Enter key in manual location text field runs function
+	$("#currentLocation").keypress(function(e) {
+		if (e.which == 13) SetLocation();
+	});
+
+	$("#closeModal").on('click', function() {
+		$("#myModal").hide();
+		$("results").html("");
+	});
 }

@@ -1,61 +1,400 @@
-@font-face {font-family: CarnetDeVoyage; src: url(fonts/CarnetDeVoyage.ttf);}
-@font-face {font-family: Varela; src: url(fonts/Varela.ttf);}
+/*
+	style.css
+	Tyler Roland
+	Edited 6/22/17
+	Styles for Help Me Decide app
+*/
 
-body {margin: -1px 0 0 0; text-align: center; font-family: sans-serif; color: white; background-color: #db4b46;}
-h2 {margin: 5px auto; font-family: Varela; letter-spacing: .1em; font-size: 30px; color: #fff;}
-button {margin: 15px; padding: 5px 10px; border: 0; font-family: Varela; font-size: 13px; box-shadow: 2px 2px 2px #222; background-color: #fff; border-radius: 10px; text-transform: uppercase; cursor: pointer;}
-button:hover {background-color: #aaa;}
-img {width: 100%;}
-label {color: white; font-family: Varela; font-size: 20px; letter-spacing: .1em;}
-p {font-family: Varela; font-size: 25px; letter-spacing: .1em; width: 70%; margin: 20px auto;}
 
-#logoDiv {width: 70%; max-width: 800px; margin: 20px auto;}
-#startDiv {margin: 20px auto 0 auto; width: 80%; max-width: 800px; min-width: 300px;}
-#startDiv p {width: 90%;}
-#categoryDiv {background-color: #222; padding: 20px 0;}
 
-#body {padding-bottom: 30px;}
+/* -- Imported Fonts -- */
+
+@font-face {
+	font-family: CarnetDeVoyage; 
+	src: url(fonts/CarnetDeVoyage.ttf);
+}
+
+@font-face {
+	font-family: Varela; 
+	src: url(fonts/Varela.ttf);
+}
+
+
+
+/* -- General Styles -- */
+
+body {
+	background-color: white;
+	color: #222;
+	font-family: Varela, sans-serif;
+	margin: -1px 0 0 0; 
+	text-align: center;
+}
+
+h2 {
+	color: #fff;
+	font-family: Varela; 
+	font-size: 30px;
+	letter-spacing: .1em;
+}
+
+button {
+	background-color: #fff;
+	border: 0;
+	box-shadow: 2px 2px 2px #222;
+	cursor: pointer;
+	font-family: Varela; 
+	font-size: 13px;
+	margin: 15px; 
+	padding: 5px 10px;
+	text-transform: uppercase;
+}
+
+button:hover {
+	background-color: #222; 
+	color: white;
+}
+
+img {
+	width: 100%;
+}
+
+label {
+	color: white; 
+	font-family: Varela; 
+	font-size: 20px; 
+	letter-spacing: .1em;
+}
+
+p {
+	font-family: Varela; 
+	font-size: 25px; 
+	letter-spacing: .1em; 
+	margin: 20px auto;
+	width: 70%;
+}
+
+#body {
+	padding-bottom: 30px;
+}
+
+#fontLoader {
+	font-family: CarnetDeVoyage;
+}
+
+
 
 /* Font Awesome icon styles */
-.fa-arrow-down {position: absolute; top: 60px; left: 44.25%; color: #e3e57e; z-index: 50;}
-.fa-bicycle:hover, .fa-cutlery:hover, .fa-glass:hover, .fa-paint-brush:hover {cursor: pointer; color: #469ddb; position: relative;}
-.fa-bicycle, .fa-glass, .fa-paint-brush {margin-left: 40px;}
 
-.tooltip .tooltiptext {visibility: hidden; background-color: #fff; color: #222; font-family: Varela; text-align: center; padding: 5px; font-size: 20px; border-radius: 6px; position: absolute; z-index: 1; top: 115%; left: 50%; margin-left: -30px; opacity: 0; transition: opacity 1s;}
-.tooltip .tooltiptext::after {content: ""; position: absolute; bottom: 100%; left: 50%; margin-left: -5px; border-width: 5px; border-style: solid; border-color: transparent transparent #fff transparent;}
-.tooltip:hover .tooltiptext {visibility: visible; opacity: 1;}
+.fa {
+	color: white;
+}
 
-#choices {text-align: left; height: 340px; overflow-y: scroll; border-top: 3px solid #222; background-color: #ddd;}
-#choicesContainer {background-color: #469ddb; color: #222; display: none;}
-#choices label {color: #222; font-size: 16px; margin-left: 5px;}
-#choicesContainer p {font-size: 16px; color: #fff; width: 80%; margin: 10px auto;}
-#chartContainer {height: 300px; width: 300px; border-radius: 100%; -webkit-border-radius: 100%; margin: auto; background-color: #fff}
-#container {height: 300px; width: 300px; border-radius: 100%; -webkit-border-radius: 100%; overflow: hidden; margin: 30px auto;}
-#circleContainer, #choicesContainer {vertical-align: top; min-width: 300px; max-width: 400px; width: 80%; height: 500px; margin: 10px auto;}
-#circleContainer {display: none; position: relative; background-color: #8bc49b;}
+.fa-arrow-down {
+	color: #d8c63a;
+	left: 45%;
+	position: absolute; 
+	top: 130px; 
+	z-index: 50;
+}
+
+.fa-bicycle:hover, .fa-cutlery:hover, .fa-glass:hover, .fa-paint-brush:hover, .fa-close:hover {
+	color: #222;
+	cursor: pointer; 
+	position: relative;
+}
+
+.fa-bicycle, .fa-glass, .fa-paint-brush {
+	margin-left: 40px;
+}
+
+
+
+/* -- Jumbotron -- */
+
+#jumbotron {
+	background: url(img/billboard.jpg) no-repeat top center;
+	background-size: cover;
+}
+
+.jumbotron {
+	margin-bottom: 0;
+	padding-top: 200px;
+}
+
+.jumbotron h1 {
+	color: white;
+	font-weight: bolder;
+	margin-bottom: 0;
+	text-align: right;
+}
+
+.jumbotron h3 {
+	color: white;
+	margin-top: 10px;
+	text-align: right;
+}
+
+#yelpspan {
+	color: #aa3b3b;
+}
+
+
+
+/* -- Start Div -- */
+
+#startDiv {
+	margin: auto;
+}
+
+#startDiv h2 {
+	color: #222;
+	padding: 20px 0;
+}
+
+#categoryDiv {
+	background-color: #aa3b3b; 
+	padding: 20px 0;
+}
+
+
+
+/* -- Choices container -- */
+
+#choicesContainer {
+	background-color: #46484c; 
+	color: #222; 
+	display: none;
+}
+
+#choicesContainer h2 {
+	padding: 5px 0 10px;
+	text-decoration: underline;
+}
+
+
+
+#choices {
+	background-color: #ddd; 
+	border-top: 3px solid #222; 
+	height: 340px; 
+	overflow-y: scroll;
+	padding-left: 10px; 
+	padding-top: 5px;
+	text-align: left; 
+}
+
+#choices label {
+	color: #222; 
+	font-size: 16px; 
+	margin-left: 5px;
+}
+
+#choicesContainer p, #circleContainer p {
+	color: #fff;
+	font-size: 16px; 
+	margin: 10px auto;
+	width: 90%;
+}
+
+
+
+/* -- Chart container -- */
+#chartContainer {
+	background-color: #fff;
+	border-radius: 100%;
+	height: 300px;
+	margin: auto;
+	-webkit-border-radius: 100%; 
+	width: 300px;
+}
+
+#container {
+	border-radius: 100%;
+	height: 300px;
+	margin: 30px auto;
+	overflow: hidden;
+	-webkit-border-radius: 100%; 
+	width: 300px;
+}
+
+#circleContainer {
+	background-color: #46484c;
+	display: none; 
+	position: relative;
+}
+
+#circleContainer, #choicesContainer {
+	height: 500px;
+	margin: 20px 40px;
+	max-width: 400px;
+	min-width: 300px; 
+	vertical-align: top;  
+	width: 80%;  
+}
+
+
 
 /* Modal and Content */
-.modal {display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgb(0,0,0); background-color: rgba(0,0,0,0.4);}
-.modal-content {background-color: #d32323; margin: 15% auto; padding: 20px; border: 3px solid #222; width: 80%; color: white; text-align: center; font-size: 30px; font-family: Varela;}
-#results {font-size: 80px; font-family: CarnetDeVoyage; text-transform: uppercase; margin: 40px auto;}
-.modal-content button {border: 0; border-radius: 10px; padding: 10px; margin: 10px; font-size: 20px; background-color: white; cursor: pointer;}
-.modal-content button:hover {background-color: #aaa;}
-input[type=text] {padding: 10px; width: 80%; max-width: 400px; border-radius: 10px; border: 0; font-size: 18px;}
-#manualLocation {display: none;}
 
-/* Styles for each business returned from Yelp search */
-#finalResults {display: none;}
-.card {border-top: 2px solid white; padding: 30px 0; width: 80%; margin: auto; text-align: left;}
-.card .image {width: 20%; max-width: 300px; max-height: 300px; overflow: hidden; border: 3px solid white; border-radius: 10px; box-shadow: 3px 3px 3px #222;}
-.card a:link, .card a:visited {color: #FFBA49;}
-.card a:hover {color: #fff;}
-.rating img {width: 20px; margin-right: 5px;}
-.image img {width: 100%; border-radius: 10px; vertical-align: middle;}
-.info {margin-left: 30px; max-width: 40%;}
-.name {font-size: 40px; margin-bottom: 20px;}
-.inline {display: inline-block; vertical-align: top;}
-.address {float: right; text-align: right; max-width: 30%;}
-.address img {width: 100px;}
+.modal {
+	background-color: rgb(0,0,0); 
+	background-color: rgba(0,0,0,0.4);
+	display: none;
+	height: 100%;
+	left: 0; 
+	overflow: auto;
+	position: fixed;
+	top: 0; 
+	width: 100%;
+	z-index: 100;
+}
+
+.modal-content {
+	background-color: #aa3b3b; 
+	border: 3px solid white;
+	color: white;
+	font-family: Varela;
+	font-size: 30px;
+	margin: 15% auto; 
+	padding: 20px;
+	text-align: center; 
+	width: 80%;
+}
+
+
+#results {
+	font-family: CarnetDeVoyage;
+	font-size: 80px;  
+	margin: 40px auto;
+	text-transform: uppercase;
+	width: 80%;
+}
+
+.modal-content .modalbutton {
+	background-color: white;
+	border: 0; 
+	color: #222; 
+	cursor: pointer;
+	font-size: 20px;
+	margin: 10px;
+	padding: 10px;
+}
+
+.modal-content .modalbutton:hover {
+	background-color: #222; 
+	color: white;
+}
+
+#manualLocation {
+	display: none; 
+	margin: 0 auto; 
+	width: 70%;
+}
+
+#manualLocation button {
+	margin: 0;
+}
+
+.closeModal {
+	margin: auto;
+	text-align: right;
+	width: 95%;
+}
+
+.modal p {
+	margin: 0 auto;
+}
+
+
+
+/* -- Styles for each business returned from Yelp search -- */
+
+#finalResults {
+	display: none;
+}
+
+.card {
+	border-top: 2px solid #222; 
+	margin: auto;
+	padding: 30px 0; 
+	text-align: left;
+	width: 80%;
+}
+
+.card .image {
+	border: 3px solid #222; 
+	border-radius: 10px; 
+	box-shadow: 3px 3px 3px #222;
+	max-height: 300px;
+	max-width: 300px;
+	overflow: hidden;
+	width: 20%;
+}
+
+.card a:link, .card a:visited {
+	color: #aa3b3b;
+}
+
+.card a:hover {
+	color: #222;
+}
+
+.rating img {
+	margin-right: 5px;
+	width: 20px; 
+}
+
+.image img {
+	border-radius: 10px;
+	vertical-align: middle;
+	width: 100%;
+}
+
+.info {
+	margin-left: 30px; 
+	max-width: 40%;
+}
+
+.name {
+	font-size: 40px; 
+	margin-bottom: 20px;
+}
+
+.inline {
+	display: inline-block; 
+	vertical-align: top;
+}
+
+.address {
+	float: right; 
+	max-width: 30%;
+	text-align: right;
+}
+
+.address img {
+	width: 100px;
+}
+
+
+
+/* -- Footer -- */
+
+.footer {
+	background-color: #f5f5f5;
+	width: 100%;
+}
+
+.footer p {
+	font-size: 14px;
+	margin: 0 auto;
+	padding: 20px;
+}
+
+
+@media screen and (max-width: 1024px) and (min-width: 800px) {
+	#choicesContainer, #circleContainer {max-width: 375px;}
+}
 
 @media screen and (max-width: 800px) {
 	.name {font-size: 25px; margin-bottom: 10px;}
@@ -63,6 +402,9 @@ input[type=text] {padding: 10px; width: 80%; max-width: 400px; border-radius: 10
 	#results {font-size: 40px;}
 	.fa-bicycle, .fa-glass, .fa-cutlery, .fa-paint-brush {font-size: 40px;}
 	.fa-bicycle, .fa-glass, .fa-paint-brush {margin-left: 20px;}
+	.fa-arrow-down {top: 150px; left: 43.5%;}
+
+	#choicesContainer, #circleContainer {margin: 20px auto;}
 }
 
 @media screen and (max-width: 580px) {
