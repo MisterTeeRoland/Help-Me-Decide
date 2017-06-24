@@ -1,12 +1,25 @@
-# Help Me Decide (powered by Yelp)
+# Help Me Decide (powered by Yelp!)
 
-A web application that helps a user decide what to do or where to eat, based of a group chosen options, and then presents businesses using the Yelp Fusion API.
 
-Have you ever been hungry but couldn't decide on what you wanted?
-Have you ever wanted to go out, but couldn't decide what to do?
+###Help Me Decide is your solution.
 
-Help Me Decide is your solution.
+![Image of Help Me Decide](/img/helpmedecide.png)
 
-Pick a category, pick what you're willing to do, and let the program decide for you!
+####Step 1: Pick a category.
+Choose between Food, Active Life, Night Life, and Entertainment.
 
-Program can be used here: http://www.tyler-roland.com/HelpMeDecide
+####Step 2: Choose options that sound good.
+Select one or select all! (Although you should probably select more than one...)
+
+####Step 3: Let the program help you decide!
+Click the button. Simple as that.
+
+![Image of Chosen Result](/img/helpmedecide3.png)
+
+Once you're happy with the choice, enter a location near you to get the top 5 local businesses for that category.
+You can enter an address, neighborhood, city/state, or zip code.
+
+![Image of Local Businesses](/img/helpmedecide2.png)
+
+Application can be used here: http://www.tyler-roland.com/HelpMeDecide
+
