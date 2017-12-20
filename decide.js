@@ -48,7 +48,6 @@ var lat = 0;
 var lon = 0;
 
 function SearchYelp() {
-	getLocation();
 	$("#resultButtons").hide();
 	$("#manualLocation").show();
 }
@@ -108,47 +107,63 @@ function SetLocation() {
 function GetResults(data) {
 	var str = "";
 
-	for (var i = 0; i < data['businesses'].length; i++) {
-		
-		// business image, name, and URL
-		var cardString = "<div class='card'><div class='image inline'><img src='"+data['businesses'][i]['image_url']+"'></div><div class='info inline'><div class='name'><a href='"+data['businesses'][i]['url']+"'>"+data['businesses'][i]['name']+"</a></div><div class='rating'>";
+	console.log(data);
 
-				var rating = data['businesses'][i]['rating']; //get that business's rating
-				var strRating = String(rating); //convert rating to string
-				if (strRating.length == 1) { //if rating is single digit (e.g. "4")
-					for (var z = 0; z < rating; z++)
-						cardString += "<img src='img/ratings/10x10_"+rating+".png'>";
+	if (typeof data['error'] != 'undefined') {
+		if (data['error']['code'] == "LOCATION_NOT_FOUND") {
+			str += "<p class='resultError'>" + data['error']['description'] + "</p><button class='searchAgainBtn' onclick='reEnterLocation()'>Refine Search</button>";
+		}
+	}
+	
+	else {
 
-					var extra = 5 - rating; //get the difference
-
-					for (var z = 0; z < extra; z++) //must have 5 stars, even if not filled in.
-						cardString += "<img src='img/ratings/10x10_0.png'>";
-				}
-				else if (strRating.length == 3) { //if rating is triple character (e.g. "2.5")
-					var tempRating = strRating.charAt(0); //get first character and put that many filled stars
-					for (z = 0; z < tempRating; z++)
-						cardString += "<img src='img/ratings/10x10_"+tempRating+".png'>";
-					cardString += "<img src='img/ratings/10x10_"+tempRating+"_5.png'>"; //then put the half star
-					var extra = 5 - (Math.floor(rating) + 1); //get the difference from 5
-					for (var z = 0; z < extra; z++) //must have 5 stars, even if not filled in
-						cardString += "<img src='img/ratings/10x10_0.png'>";
-				}
-
-				//add dollar sign for price (e.g. "$", "$$")
-				cardString += " "+data['businesses'][i]['review_count']+" reviews</div><div class='price'>"+data['businesses'][i]['price']+" &bull; ";
-
-				//add all categories
-				for (var k = 0; k < data['businesses'][i]['categories'].length; k++) {
-					cardString += data['businesses'][i]['categories'][k]['title'];
-					if (k < (data['businesses'][i]['categories'].length - 1))
-						cardString += ", ";
-				}
-
-				//business address, phone, and yelp logo
-				cardString += "</div></div><div class='address inline'>"+data['businesses'][i]['location']['address1']+"<br>"+data['businesses'][i]['location']['city']+", "+data['businesses'][i]['location']['state']+" "+data['businesses'][i]['location']['zip_code']+"<br>"+data['businesses'][i]['display_phone']+"<br><br><a href='http://www.yelp.com'><img src='img/yelp.png'></a></div></div>";
+		if (data['businesses'].length == 0) {
+			str += "<p class='resultError'>Sorry, there are no businesses like this in the area you specified.<br>Please try modifying your location.</p><button class='searchAgainBtn' onclick='reEnterLocation()'>Refine Search</button>";
+		}
 
 
-		str += cardString;
+		for (var i = 0; i < data['businesses'].length; i++) {
+			
+			// business image, name, and URL
+			var cardString = "<div class='card'><div class='image inline'><img src='"+data['businesses'][i]['image_url']+"'></div><div class='info inline'><div class='name'><a href='"+data['businesses'][i]['url']+"'>"+data['businesses'][i]['name']+"</a></div><div class='rating'>";
+
+					var rating = data['businesses'][i]['rating']; //get that business's rating
+					var strRating = String(rating); //convert rating to string
+					if (strRating.length == 1) { //if rating is single digit (e.g. "4")
+						for (var z = 0; z < rating; z++)
+							cardString += "<img src='img/ratings/10x10_"+rating+".png'>";
+
+						var extra = 5 - rating; //get the difference
+
+						for (var z = 0; z < extra; z++) //must have 5 stars, even if not filled in.
+							cardString += "<img src='img/ratings/10x10_0.png'>";
+					}
+					else if (strRating.length == 3) { //if rating is triple character (e.g. "2.5")
+						var tempRating = strRating.charAt(0); //get first character and put that many filled stars
+						for (z = 0; z < tempRating; z++)
+							cardString += "<img src='img/ratings/10x10_"+tempRating+".png'>";
+						cardString += "<img src='img/ratings/10x10_"+tempRating+"_5.png'>"; //then put the half star
+						var extra = 5 - (Math.floor(rating) + 1); //get the difference from 5
+						for (var z = 0; z < extra; z++) //must have 5 stars, even if not filled in
+							cardString += "<img src='img/ratings/10x10_0.png'>";
+					}
+
+					//add dollar sign for price (e.g. "$", "$$")
+					cardString += " "+data['businesses'][i]['review_count']+" reviews</div><div class='price'>"+data['businesses'][i]['price']+" &bull; ";
+
+					//add all categories
+					for (var k = 0; k < data['businesses'][i]['categories'].length; k++) {
+						cardString += data['businesses'][i]['categories'][k]['title'];
+						if (k < (data['businesses'][i]['categories'].length - 1))
+							cardString += ", ";
+					}
+
+					//business address, phone, and yelp logo
+					cardString += "</div></div><div class='address inline'>"+data['businesses'][i]['location']['address1']+"<br>"+data['businesses'][i]['location']['city']+", "+data['businesses'][i]['location']['state']+" "+data['businesses'][i]['location']['zip_code']+"<br>"+data['businesses'][i]['display_phone']+"<br><br><a href='http://www.yelp.com'><img src='img/yelp.png'></a></div></div>";
+
+
+			str += cardString;
+		}
 	}
 
 	$("#main").hide();
@@ -211,7 +226,6 @@ function SetupCategories(category) {
 
 //function to build or rebuild the choices circle after a choice is selected or deselected
 function BuildPieChart() {
-	//$("#circleContainer").css('display', 'inline-block');
 	$("#circleContainer").show(800, "swing");
 	numSelected = 0;
 	$("#chartContainer").html("");
@@ -259,6 +273,12 @@ function DisplayResult(angle) {
 	$("#myModal").css('display', 'block');
 }
 
+function reEnterLocation() {
+	$("#resultButtons").hide();
+	$("#manualLocation").show();
+	$("#myModal").css('display', 'block');
+}
+
 //check browser's ability to get user's location
 function getLocation() {
     if (navigator.geolocation) navigator.geolocation.getCurrentPosition(showPosition);
@@ -273,6 +293,16 @@ function showPosition(position) {
 }
 
 window.onload = function() {
+
+	var arr = location.pathname.split("/");
+	var page = "/" + arr[arr.length-2] + "/" + arr[arr.length-1];
+
+	$.ajax({
+		url: '../../websiteHandler.php?opr=saveIP&page='+page,
+		success: function(data) {},
+		error: function(jqXHR) {}
+	});
+	
 	$('[data-toggle="tooltip"]').tooltip(); //initialize Bootstrap tooltips with tooltip.js
 	
 	//copyright date
