@@ -5,8 +5,6 @@
 	Styles for Help Me Decide app
 */
 
-
-
 /* -- Imported Fonts -- */
 
 @font-face {
@@ -18,8 +16,6 @@
 	font-family: Varela; 
 	src: url(fonts/Varela.ttf);
 }
-
-
 
 /* -- General Styles -- */
 
@@ -50,6 +46,12 @@ button {
 	text-transform: uppercase;
 }
 
+button.searchAgainBtn {
+	background-color: #aa3b3b;
+	color: white;
+	padding: 10px 15px;
+}
+
 button:hover {
 	background-color: #222; 
 	color: white;
@@ -74,15 +76,10 @@ p {
 	width: 70%;
 }
 
-#body {
-	padding-bottom: 30px;
-}
 
 #fontLoader {
 	font-family: CarnetDeVoyage;
 }
-
-
 
 /* Font Awesome icon styles */
 
@@ -92,9 +89,11 @@ p {
 
 .fa-arrow-down {
 	color: #d8c63a;
-	left: 45%;
+	left: 0;
 	position: absolute; 
+	text-shadow: 1px 1px 1px #444;
 	top: 130px; 
+	width: 100%;
 	z-index: 50;
 }
 
@@ -107,8 +106,6 @@ p {
 .fa-bicycle, .fa-glass, .fa-paint-brush {
 	margin-left: 40px;
 }
-
-
 
 /* -- Jumbotron -- */
 
@@ -139,8 +136,6 @@ p {
 	color: #aa3b3b;
 }
 
-
-
 /* -- Start Div -- */
 
 #startDiv {
@@ -157,31 +152,31 @@ p {
 	padding: 20px 0;
 }
 
-
-
 /* -- Choices container -- */
 
 #choicesContainer {
 	background-color: #46484c; 
 	color: #222; 
 	display: none;
+	position: relative;
 }
 
 #choicesContainer h2 {
-	padding: 5px 0 10px;
 	text-decoration: underline;
 }
-
-
 
 #choices {
 	background-color: #ddd; 
 	border-top: 3px solid #222; 
-	height: 340px; 
+	bottom: 0;
+	height: 355px; 
+	left: 0;
 	overflow-y: scroll;
 	padding-left: 10px; 
 	padding-top: 5px;
+	position: absolute;
 	text-align: left; 
+	width: 100%;
 }
 
 #choices label {
@@ -193,11 +188,13 @@ p {
 #choicesContainer p, #circleContainer p {
 	color: #fff;
 	font-size: 16px; 
-	margin: 10px auto;
+	margin: auto;
 	width: 90%;
 }
 
-
+#circleContainer p {
+	margin: 20px auto 10px;
+}
 
 /* -- Chart container -- */
 #chartContainer {
@@ -226,14 +223,17 @@ p {
 
 #circleContainer, #choicesContainer {
 	height: 500px;
-	margin: 20px 40px;
-	max-width: 400px;
-	min-width: 300px; 
-	vertical-align: top;  
-	width: 80%;  
+	margin-top: 2px;
+	min-width: 300px;
+	vertical-align: top;
+	width: 49.9%;
 }
 
-
+#bothContainer {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
 
 /* Modal and Content */
 
@@ -256,12 +256,12 @@ p {
 	color: white;
 	font-family: Varela;
 	font-size: 30px;
-	margin: 15% auto; 
+	margin: 15% auto;
+	overflow: hidden; 
 	padding: 20px;
 	text-align: center; 
 	width: 80%;
 }
-
 
 #results {
 	font-family: CarnetDeVoyage;
@@ -306,12 +306,15 @@ p {
 	margin: 0 auto;
 }
 
-
-
 /* -- Styles for each business returned from Yelp search -- */
 
 #finalResults {
 	display: none;
+}
+
+p.resultError {
+	font-size: 18px;
+	width: 100%;
 }
 
 .card {
@@ -319,12 +322,11 @@ p {
 	margin: auto;
 	padding: 30px 0; 
 	text-align: left;
-	width: 80%;
+	width: 100%;
 }
 
 .card .image {
 	border: 3px solid #222; 
-	border-radius: 10px; 
 	box-shadow: 3px 3px 3px #222;
 	max-height: 300px;
 	max-width: 300px;
@@ -346,7 +348,6 @@ p {
 }
 
 .image img {
-	border-radius: 10px;
 	vertical-align: middle;
 	width: 100%;
 }
@@ -376,12 +377,9 @@ p {
 	width: 100px;
 }
 
-
-
 /* -- Footer -- */
 
 .footer {
-	background-color: #f5f5f5;
 	width: 100%;
 }
 
@@ -389,29 +387,36 @@ p {
 	font-size: 14px;
 	margin: 0 auto;
 	padding: 20px;
+	width: 100%;
 }
 
 
-@media screen and (max-width: 1024px) and (min-width: 800px) {
-	#choicesContainer, #circleContainer {max-width: 375px;}
-}
-
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 768px) {
 	.name {font-size: 25px; margin-bottom: 10px;}
 	.address img {width: 50px;}
 	#results {font-size: 40px;}
 	.fa-bicycle, .fa-glass, .fa-cutlery, .fa-paint-brush {font-size: 40px;}
 	.fa-bicycle, .fa-glass, .fa-paint-brush {margin-left: 20px;}
-	.fa-arrow-down {top: 150px; left: 43.5%;}
-
-	#choicesContainer, #circleContainer {margin: 20px auto;}
 }
 
-@media screen and (max-width: 580px) {
-	.fa-bicycle, .fa-glass, .fa-cutlery, .fa-paint-brush {font-size: 30px;}
+@media screen and (max-width: 760px) {
+
+	#bothContainer {
+		flex-direction: column; 
+	}
+
+	#choicesContainer, #circleContainer {width: 100%;}
 	.card .image {width: 100%; max-width: 100%; max-height: 100%;}
 	.card .info {max-width: 100%; width: 100%; margin: 10px 0;}
 	.card .address {float: none; text-align: left; max-width: 100%; width: 100%;}
+	.fa-arrow-down {top: 150px;}
+	h2 {
+		font-size: 25px;
+	}
+
+	#results {
+		font-size: 25px;
+	}
 }
 
 @media screen and (max-width: 320px) {
