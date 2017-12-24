@@ -2,7 +2,7 @@
 	Basic functionality of Help Me Decide application.
 	Author: Tyler Roland
 	Date Created: 1/10/17
-	Last Modified: 1/19/17
+	Last Modified: 12/24/17
 */
 
 var foodArray = ["Afghan", "African", "American (New)", "American (Traditional)", "Arabian", "Argentine", "Armenian", "Asian Fusion", "Austrailian",
@@ -207,10 +207,10 @@ function SetupCategories(category) {
 	$("#choices").html("");
 	$("#choicesContainer").css('display', 'inline-block');
 
-	if (category == 'food') 				toUse = foodArray;
+	if (category == 'food') 			toUse = foodArray;
 	else if (category == 'active') 			toUse = activeArray;
 	else if (category == 'nightlife') 		toUse = nightlifeArray;
-	else if (category == 'entertainment') 	toUse = entertainmentArray;
+	else if (category == 'entertainment') 		toUse = entertainmentArray;
 
 	var choices = "";
 
@@ -293,15 +293,6 @@ function showPosition(position) {
 }
 
 window.onload = function() {
-
-	var arr = location.pathname.split("/");
-	var page = "/" + arr[arr.length-2] + "/" + arr[arr.length-1];
-
-	$.ajax({
-		url: '../../websiteHandler.php?opr=saveIP&page='+page,
-		success: function(data) {},
-		error: function(jqXHR) {}
-	});
 	
 	$('[data-toggle="tooltip"]').tooltip(); //initialize Bootstrap tooltips with tooltip.js
 	
