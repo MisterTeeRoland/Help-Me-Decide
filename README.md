@@ -34,6 +34,4 @@ You can enter an address, neighborhood, city/state, or zip code.
 
 ![Image of Local Businesses](/img/helpmedecide2.png)
 
-
-## Application can be used here: http://www.tyler-roland.com/HelpMeDecide
-
+If you would like to learn more about a business, simply click the name and you will be redirected to that business's official Yelp page.
