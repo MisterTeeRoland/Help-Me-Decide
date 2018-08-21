@@ -1,8 +1,3 @@
-<?php
-	require("../websiteHandler.php");
-	saveIP();
-?>
-
 <!DOCTYPE html>
 <html>
 	<head>
