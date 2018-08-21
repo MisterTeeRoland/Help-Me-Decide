@@ -5,33 +5,20 @@
 	Styles for Help Me Decide app
 */
 
-/* -- Imported Fonts -- */
-
-@font-face {
-	font-family: CarnetDeVoyage; 
-	src: url(fonts/CarnetDeVoyage.ttf);
-}
-
-@font-face {
-	font-family: Varela; 
-	src: url(fonts/Varela.ttf);
-}
-
 /* -- General Styles -- */
 
 body {
 	background-color: white;
 	color: #222;
-	font-family: Varela, sans-serif;
+	font-family: Montserrat, sans-serif;
 	margin: -1px 0 0 0; 
 	text-align: center;
 }
 
 h2 {
-	color: #fff;
-	font-family: Varela; 
 	font-size: 30px;
 	letter-spacing: .1em;
+	margin: auto;
 }
 
 button {
@@ -39,7 +26,6 @@ button {
 	border: 0;
 	box-shadow: 2px 2px 2px #222;
 	cursor: pointer;
-	font-family: Varela; 
 	font-size: 13px;
 	margin: 15px; 
 	padding: 5px 10px;
@@ -61,62 +47,25 @@ img {
 	width: 100%;
 }
 
-label {
-	color: white; 
-	font-family: Varela; 
-	font-size: 20px; 
-	letter-spacing: .1em;
-}
-
-p {
-	font-family: Varela; 
-	font-size: 25px; 
-	letter-spacing: .1em; 
-	margin: 20px auto;
-	width: 70%;
-}
-
-
-#fontLoader {
-	font-family: CarnetDeVoyage;
-}
-
-/* Font Awesome icon styles */
-
-.fa {
+h3 {
 	color: white;
+	margin: auto;
 }
 
-.fa-arrow-down {
-	color: #d8c63a;
-	left: 0;
-	position: absolute; 
-	text-shadow: 1px 1px 1px #444;
-	top: 130px; 
-	width: 100%;
-	z-index: 50;
-}
-
-.fa-bicycle:hover, .fa-cutlery:hover, .fa-glass:hover, .fa-paint-brush:hover, .fa-close:hover {
-	color: #222;
-	cursor: pointer; 
-	position: relative;
-}
-
-.fa-bicycle, .fa-glass, .fa-paint-brush {
-	margin-left: 40px;
+h3 span {
+	font-size: 18px;
 }
 
 /* -- Jumbotron -- */
 
 #jumbotron {
-	background: url(img/billboard.jpg) no-repeat top center;
+	background: url(img/billboard.jpg) no-repeat center;
 	background-size: cover;
 }
 
 .jumbotron {
 	margin-bottom: 0;
-	padding-top: 200px;
+	padding-top: 100px;
 }
 
 .jumbotron h1 {
@@ -128,7 +77,7 @@ p {
 
 .jumbotron h3 {
 	color: white;
-	margin-top: 10px;
+	margin-top: 0px;
 	text-align: right;
 }
 
@@ -136,40 +85,64 @@ p {
 	color: #aa3b3b;
 }
 
-/* -- Start Div -- */
 
-#startDiv {
-	margin: auto;
-}
 
-#startDiv h2 {
-	color: #222;
-	padding: 20px 0;
+#banner {
+	border-top: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+	margin: 20px auto;
+	padding: 30px 0;
 }
 
 #categoryDiv {
-	background-color: #aa3b3b; 
-	padding: 20px 0;
+	background-color: #444; 
+	height: 500px;
 }
 
-/* -- Choices container -- */
+#categoryDiv .fa {
+	color: white;
+	margin: 10px;
+}
+
+#categoryDiv .fa:hover {
+	color: #999;
+	cursor: pointer; 
+	position: relative;
+}
+
+.column-header {
+	background-color: #aa3b3b; 
+	border-bottom: 1px solid white;
+	padding: 10px;
+}
+
+#categoryDiv .column-body {
+	padding: 20px;
+}
+
 
 #choicesContainer {
-	background-color: #46484c; 
-	color: #222; 
+	background-color: #444; 
+	color: white; 
 	display: none;
 	position: relative;
 }
 
-#choicesContainer h2 {
-	text-decoration: underline;
+#choicesContainer button {
+	color: #222;
+	margin: 7px 5px 5px;
 }
+
+#choicesContainer button:hover {
+	background: #ccc;
+}
+
 
 #choices {
 	background-color: #ddd; 
 	border-top: 3px solid #222; 
 	bottom: 0;
-	height: 355px; 
+	height: 385px; 
 	left: 0;
 	overflow-y: scroll;
 	padding-left: 10px; 
@@ -181,20 +154,43 @@ p {
 
 #choices label {
 	color: #222; 
-	font-size: 16px; 
+	font-size: 14px; 
 	margin-left: 5px;
 }
 
-#choicesContainer p, #circleContainer p {
-	color: #fff;
-	font-size: 16px; 
-	margin: auto;
-	width: 90%;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Font Awesome icon styles */
+
+.fa-arrow-down {
+	color: #ffe200;
+	left: 0;
+	position: absolute; 
+	text-shadow: 1px 1px 1px #444;
+	top: 130px; 
+	width: 100%;
+	z-index: 50;
 }
 
-#circleContainer p {
-	margin: 20px auto 10px;
-}
+
+
+
+
+
 
 /* -- Chart container -- */
 #chartContainer {
@@ -216,24 +212,16 @@ p {
 }
 
 #circleContainer {
-	background-color: #46484c;
+	background-color: #444;
 	display: none; 
 	position: relative;
 }
 
 #circleContainer, #choicesContainer {
 	height: 500px;
-	margin-top: 2px;
-	min-width: 300px;
-	vertical-align: top;
-	width: 49.9%;
+	width: 100%;
 }
 
-#bothContainer {
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-}
 
 /* Modal and Content */
 
@@ -254,19 +242,25 @@ p {
 	background-color: #aa3b3b; 
 	border: 3px solid white;
 	color: white;
-	font-family: Varela;
 	font-size: 30px;
-	margin: 15% auto;
+	margin: 10% auto;
 	overflow: hidden; 
 	padding: 20px;
 	text-align: center; 
 	width: 80%;
 }
 
+.modal .fa {
+	cursor: pointer;
+}
+
+.modal .fa:hover {
+	color: #ccc;
+}
+
 #results {
-	font-family: CarnetDeVoyage;
 	font-size: 80px;  
-	margin: 40px auto;
+	margin: 20px auto;
 	text-transform: uppercase;
 	width: 80%;
 }
@@ -289,7 +283,8 @@ p {
 #manualLocation {
 	display: none; 
 	margin: 0 auto; 
-	width: 70%;
+	max-width: 800px;
+	width: 100%;
 }
 
 #manualLocation button {
@@ -379,15 +374,18 @@ p.resultError {
 
 /* -- Footer -- */
 
-.footer {
+footer {
+	background: #222;
+	font-size: 14px !important;
+	padding: 30px 0;
+	text-align: center;
 	width: 100%;
 }
 
-.footer p {
-	font-size: 14px;
-	margin: 0 auto;
-	padding: 20px;
-	width: 100%;
+@media screen and (max-width: 991px) {
+	#categoryDiv {
+		height: auto;
+	}
 }
 
 

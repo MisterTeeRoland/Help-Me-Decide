@@ -2,7 +2,7 @@
 	Basic functionality of Help Me Decide application.
 	Author: Tyler Roland
 	Date Created: 1/10/17
-	Last Modified: 12/24/17
+	Last Modified: 1/19/17
 */
 
 var foodArray = ["Afghan", "African", "American (New)", "American (Traditional)", "Arabian", "Argentine", "Armenian", "Asian Fusion", "Austrailian",
@@ -166,14 +166,14 @@ function GetResults(data) {
 		}
 	}
 
-	$("#main").hide();
+	$("#setup-div").hide();
 	$("#yelpResults").html(str);
 	$("#finalResults").show();
 }
 
 function SearchAgain() {
 	$("#finalResults").hide();
-	$("#main").show();
+	$("#setup-div").show();
 }
 
 //function to select all or select none of the choices
@@ -207,10 +207,10 @@ function SetupCategories(category) {
 	$("#choices").html("");
 	$("#choicesContainer").css('display', 'inline-block');
 
-	if (category == 'food') 			toUse = foodArray;
+	if (category == 'food') 				toUse = foodArray;
 	else if (category == 'active') 			toUse = activeArray;
 	else if (category == 'nightlife') 		toUse = nightlifeArray;
-	else if (category == 'entertainment') 		toUse = entertainmentArray;
+	else if (category == 'entertainment') 	toUse = entertainmentArray;
 
 	var choices = "";
 
